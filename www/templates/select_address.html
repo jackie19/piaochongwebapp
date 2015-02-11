@@ -1,0 +1,163 @@
+<ion-view view-title="配送">
+    <ion-content class="has-footer">
+
+        <div class="list list-borderless" style="margin-bottom: 0;">
+            <div class="item item-borderless">
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-block" ng-class="{'button-positive':tab.selectTab==0}" ng-click="tab.selectTab=0">送货上门</button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-block" ng-class="{'button-positive':tab.selectTab==1}" ng-click="tab.selectTab=1">上门自取</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div ng-show="tab.selectTab==0">
+
+            <div class="list my-order my-order2 ">
+                <div class="" ng-repeat="item in data.revaddress">
+
+                    <label class="item item-input item-icon-right ">
+                        <span class="input-label">姓名:</span>
+                        <span ng-bind="item.reciver"></span>
+                    </label>
+
+                    <label class="item item-input item-borderless item-text-wrap">
+                        <span class="input-label">地址:</span>
+                        <span  ng-bind="item.recaddress"></span>
+                    </label>
+
+                    <label class="item item-input item-borderless">
+                        <span class="input-label">手机:</span>
+                        <span ng-bind="item.recphone||item.rectel"></span>
+                    </label>
+
+                </div>
+
+
+            </div>
+
+            <div class="list">
+                <a href="" ng-click="showAddressModal()" class="item  item-icon-right item-borderless my-arrow" style="font-size: 14px;background-color: transparent;">
+                    选择/添加新地址
+                    <i class="icon ion-ios7-arrow-right my-arrow"></i>
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="list" ng-show="tab.selectTab==1">
+            <div class="item item-text-wrap">
+                地址： <br /> 北京市 东城区 东中街58号 美惠大厦 C805
+            </div>
+        </div>
+    </ion-content>
+
+    <div class="bar bar-footer" style="background-image:none;background-color: transparent;">
+        <a href="#/app/order/6" class="button button-block button-small button-assertive" style="margin-top: 0;width: 100%;">下一步</a>
+    </div>
+
+</ion-view>
+<script type="text/ng-template" id="address-list.html">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-positive">
+            <h1 class="title">选择/添加地址</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="closeModal('listmodal')">X</button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="wrap-gray has-footer">
+            <!--setDefaultAddress-->
+            <div class="list my-order" ng-click="setDefaultAddress($event,item.id)" ng-repeat="item in addresslist">
+
+                <label class="item item-input item-icon-right">
+                    <span class="input-label">收件人:</span>
+                    <span ng-bind="item.reciver"></span>
+
+                    <i class="icon ion-ios7-checkmark-outline grey" ng-class="{checked:item.isdef}"></i>
+                </label>
+
+                <label class="item item-input item-borderless item-text-wrap">
+                    <span class="input-label">配送地址:</span>
+                    <span ng-bind="item.recaddress"></span>
+                </label>
+
+                <label class="item item-input item-borderless">
+                    <span class="input-label">联系电话:</span>
+                    <span ng-bind="item.recphone||item.rectel"></span>
+                </label>
+
+            </div>
+
+
+        </ion-content>
+        <div class="bar bar-footer" style="background-image:none;background-color: transparent;">
+            <button ng-click="addAddressModal()" class="button button-block  button-assertive" style="margin-top: 0;width: 100%;">添加地址</button>
+        </div>
+    </ion-modal-view>
+
+</script>
+
+<script id="modal_add_address.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-positive">
+            <h1 class="title">{{title}}</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="closeModal('addmodal')">X</button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="wrap-gray">
+            <form ng-submit="doAddAdress($event)" name="addressForm">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" required ng-model="addressData.reciver" placeholder="姓名">
+                    </label>
+                </div>
+
+                <div class="list list-inset">
+                    <label class="item item-select item-input ">
+                        <div class="input-label"> &nbsp; </div>
+                        <select class="select" required ng-model="addressData.province" ng-options="city.p for city in citylist">
+                            <option value="">请选择省份</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="list list-inset">
+                    <label class="item item-select item-input ">
+                        <div class="input-label"> &nbsp; </div>
+                        <select class="select" required ng-model="addressData.city" ng-options="city.n for city in addressData.province.c">
+                            <option value="">请选择城市</option>
+                        </select>
+                    </label>
+                </div>
+
+
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" required ng-model="addressData.addr" placeholder="街道地址">
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="tel" required ng-model="addressData.recphone" placeholder="联系电话">
+                    </label>
+                </div>
+
+
+                <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                    <button ng-disabled="addressForm.$invalid" class="button button-block button-assertive" type="submit">确认</button>
+
+                </div>
+
+
+            </form>
+        </ion-content>
+    </ion-modal-view>
+
+
+</script>

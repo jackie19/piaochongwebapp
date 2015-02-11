@@ -1,0 +1,15 @@
+<ion-view view-title="选择城市">
+    <ion-content class="">
+
+        <div class="list">
+
+            <div ng-click="chooseCity(item)" class="item item-icon-right" ng-repeat="item in list">
+                <span>{{item.name}}</span>
+                <i ng-show="item.active" class="icon ion-ios7-location grey" style="font-size: 22px;"></i>
+            </div>
+
+        </div>
+    </ion-content>
+
+
+</ion-view>

@@ -1,0 +1,70 @@
+<ion-view view-title="选择">
+    <ion-content class="has-footer">
+
+        <div class="list ticket">
+            <div class="item item-text-wrap">
+                <h2 class="title">选择时间</h2>
+                <div class="row1 ticket-time-list">
+                    <!--active-->
+
+                    <div class="fl  w50 tc" ng-repeat="item in data.ccdatas[data.selcityid].ccs">
+
+                        <button type="button" class="button button-light" ng-disabled="item.showfare=='待定'" ng-class="{active:item.active}" ng-click="selectItem(item)" style="line-height: 28px;">
+                            <p>{{item.showdate}}</p>
+                        </button>
+                    </div>
+
+
+                    <div class="clear"></div>
+
+                </div>
+            </div>
+
+            <div class="item item-divider"></div>
+            <div class="item">
+                <h2 class="title">选择价格</h2>
+                <div class="line"></div>
+
+                <div class=" row1 oh">
+                    <div class=" col col-33 tc  stable-border" ng-repeat="item in cpdatas" ng-click="selectPrice($index)" ng-class="{active:item.active}">
+                        <p>售价￥
+                            <span class="assertive" ng-bind="item.newprice"></span>
+                        </p>
+                        <p><s>原价￥
+                            <span ng-bind="item.oldprice"></span>
+                        </s></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="item item-divider"></div>
+            <div class="item">
+                <h2 class="title">选择数量</h2>
+                <div class="line"></div>
+
+                <div class="row tc">
+                    <div class="col vam">
+                        <button class="button icon ion-minus vam" ng-click="ticket.ticketnum==1?ticket.ticketnum:ticket.ticketnum=ticket.ticketnum-1" ng-disabled="ticket.ticketnum==1"></button>
+
+                        <span class="vam" style="padding: 0 12px;" ng-bind="ticket.ticketnum"></span>
+
+                        <button class="button icon ion-plus vam" ng-click="ticket.ticketnum=ticket.ticketnum+1"></button>
+
+                        <span class="vam" style="padding: 0 9px;">=</span>
+
+                        <span class="assertive vam" ng-bind="ticket.ticketnum*price|currency:'￥'"></span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </ion-content>
+
+    <div class="bar bar-footer" style="background-image:none;background-color: transparent;">
+        <button type="button" ng-click="go()" ng-disabled="!price" href="#/app/address/6" class="button button-block  button-assertive" style="margin-top: 0;width: 100%;">下一步</button>
+    </div>
+</ion-view>

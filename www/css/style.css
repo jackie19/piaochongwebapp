@@ -1,0 +1,91 @@
+/* Empty. Add your own CSS if you like */
+body{ font-family:'microsoft yahei'; }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak{
+display:none !important;
+}
+
+.menu, .menu .item-complex .item-content, .menu .item-radio .item-content, .menu .item{ background-color:#023e87; color:#fff; border-color:#002670; }
+.menu .item-complex .item-content, .menu .item-radio .item-content{ }
+
+.box img{ display:block; width:100%; }
+
+.bar.bar-positive{ background-color:#074085; }
+
+.item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image{ width:auto; max-height:88px; height:88px; max-width:88px; }
+
+.button-small{ min-height:22px; line-height:22px; padding:0 6px; }
+.button.button-dark{ background-color:#bfbfbf; border-color:#bfbfbf; }
+.button.button-assertive{ background-color:#f26618; border-color:#f26618; }
+
+.checkbox-assertive input:before, .checkbox-assertive .checkbox-icon:before{ border-color:#f26618; }
+.checkbox-assertive input:checked:before, .checkbox-assertive input:checked + .checkbox-icon:before{ background-color:transparent; border-color:#f26618; }
+.checkbox input:after, .checkbox-icon:after{ border-color:#f26618; }
+
+.fr{ float:right; }
+.fl{ float:left; }
+.tr{ text-align:right; }
+.oh{ overflow:hidden; }
+.ww{ width:100%; }
+.tc{ text-align:center; }
+.grey{ color:#c8c8c8; }
+.checked{ color:#f26618; }
+.clear{ clear:both; }
+
+.vam{ vertical-align:middle; align-items:center; display:inline-block; }
+
+.play-detail-hotline .button-dark{ line-height:28px; min-width:190px }
+
+.item-divider{ min-height:0; }
+
+.list-item2{ margin-bottom:0; }
+.list-item2 .item{ padding:13px 0 13px 33px; background-color:#062e61; font-size:14px; border-color:#2e6399; }
+
+.wrap-gray{ background-color:#f6f6f6; }
+.menu a{ color:#fff; text-decoration:none; }
+.menu p{ color:#fff; }
+
+.my-arrow{ color:#104083 !important; }
+
+.my-order{ padding:0 0 12px; background-color:#fff; border-bottom:1px solid #e8e8e8; }
+.my-order .item:first-child{ padding-top:14px; }
+.my-order:first-child{ margin-top:32px; }
+.my-order .line{ margin:12px 15px 9px; background-color:#e8e8e8; height:1px; }
+.my-order .item-borderless, .my-order .input-label{ font-size:14px; color:#666; }
+.my-order .input-label{ padding:0; vertical-align:top; width:24%; }
+.my-order2:first-child{ margin-top:0; }
+.my-order2{ margin-bottom:0; }
+.my-order2 .input-label{ padding:0 0 0 9px; vertical-align:top; width:50px; }
+.my-order .item-borderless{ padding-top:3px; padding-bottom:3px; align-items:inherit; }
+
+.pane, .view{ background-color:#f2f2f2; }
+.playlists .list{ margin-top:32px; }
+.playlists .item{ margin-bottom:12px; }
+.playlists .item-complex .item-content{ padding-right:9px; }
+
+.playlists .item-thumbnail-left-detail{ margin-bottom:0; }
+.playlists .item-thumbnail-left-detail .oh{ padding:9px 0 0; }
+.playlists .item-thumbnail-left-detail .fl{ padding:9px 9px 12px 4px; }
+.playlists .item-thumbnail-left-detail .fl img{ max-width:90px; }
+
+.ticket .active{ background-color:#026be4 !important; }
+.ticket .active p{ color:#fff; }
+.ticket .line{ background-color:#e8e8e8; height:1px; margin:8px -16px; }
+.ticket .stable-border{ border-width:1px; border-style:solid; margin:3px 1%; border-color:#ccc; width:31% !important; float:left; }
+.ticket-time-list .w50{ width:46%; margin:5px 2%; }
+
+.select{ max-width:100% !important; left:0; direction:ltr !important; }
+
+.popup-body{ text-align:center; font-size:16px; }
+.popup-buttons{ padding:0; min-height:45px; border-top:1px solid #ccc; margin-top:16px; }
+.popup-buttons .button:first-child:before{ content:''; position:absolute; top:0; right:0; bottom:0; border-left:1px solid #ccc; }
+.popup-buttons .button{ margin:0; border:none; color:#104083; }
+
+.playlist_filter{ top:43px; }
+.playlist_filter .active{ background-color:#f2f2f2; color:#043f88; }
+.playlist_filter .list{ margin-bottom:0; }
+.playlist_filter .col:last-child{ padding-bottom:25px; }
+.playlist_filter .col:last-child, .playlist_filter .col:last-child .item-radio .item-content{ background-color:#f2f2f2; }
+.playlist_filter .row{ padding:0; background-color:#ffffff; }
+.playlist_filter .col{ padding:0; }
+
+.ion-android-sort:before{ background-image:url(../img/ico_filter.png); background-repeat:no-repeat; -webkit-background-size:contain; background-size:contain; content:''; width:22px; height:22px; margin-top:5px; }

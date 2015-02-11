@@ -1,0 +1,107 @@
+<ion-view view-title="地址管理">
+    <ion-content class="has-footer">
+
+        <div class="list" ng-hide="data.length>0||data.error==1">
+            <div class="item tc">
+                暂无地址，请先添加
+            </div>
+        </div>
+
+        <div class="list" ng-show="data.error==1">
+            <div class="item tc">
+                请先登陆
+            </div>
+        </div>
+
+        <div class="list my-order" ng-repeat="item in data" ng-hide="data.error==1">
+
+            <label class="item item-input item-icon-right">
+                <span class="input-label">收件人:</span>
+                <span ng-bind="item.reciver"></span>
+
+                <button class="button button-icon icon ion-ios7-close-outline my-arrow" ng-hide="id" ng-click="delAddress($event,item.id)"></button>
+
+            </label>
+
+            <label class="item item-input item-borderless">
+                <span class="input-label">配送地址:</span>
+                <span style="word-break:break-all;white-space:normal;" ng-bind="item.recaddress"></span>
+            </label>
+
+            <label class="item item-input item-borderless item-icon-right" style="padding-bottom: 5px;">
+                <span class="input-label">联系电话:</span>
+                <span ng-bind="item.recphone||item.rectel"></span>
+
+                <button class="button button-icon icon ion-ios7-checkmark-outline grey" ng-class="{checked:item.isdef=='1'}" style="margin-top: -10px;" ng-click="setDefaultAddress($event,item)"></button>
+
+            </label>
+
+        </div>
+
+
+    </ion-content>
+    <div class="bar bar-footer" style="background-image:none;background-color: transparent;">
+        <button ng-click="addAddressModal()" class="button button-block  button-assertive" style="margin-top: 0;width: 100%;">添加地址</button>
+    </div>
+</ion-view>
+
+<script id="modal_add_address.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-positive">
+            <h1 class="title">{{title}}</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="closeModal()">X</button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="wrap-gray">
+            <form ng-submit="doAddAdress($event)" name="addressForm">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" required ng-model="addressData.reciver" placeholder="姓名">
+                    </label>
+                </div>
+
+                <div class="list list-inset">
+                    <label class="item item-select item-input ">
+                        <div class="input-label"> &nbsp; </div>
+                        <select class="select" required ng-model="addressData.province" ng-options="city.p for city in citylist">
+                            <option value="">请选择省份</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="list list-inset">
+                    <label class="item item-select item-input ">
+                        <div class="input-label"> &nbsp; </div>
+                        <select class="select" required ng-model="addressData.city" ng-options="city.n for city in addressData.province.c">
+                            <option value="">请选择城市</option>
+                        </select>
+                    </label>
+                </div>
+
+
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" required ng-model="addressData.addr" placeholder="街道地址">
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="tel" required ng-model="addressData.recphone" placeholder="联系电话">
+                    </label>
+                </div>
+
+
+                <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                    <button ng-disabled="addressForm.$invalid" class="button button-block button-assertive" type="submit">确认</button>
+
+                </div>
+
+
+            </form>
+        </ion-content>
+    </ion-modal-view>
+
+
+</script>

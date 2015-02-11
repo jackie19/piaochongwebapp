@@ -1,0 +1,59 @@
+<ion-view view-title="搜索">
+    <ion-content>
+
+        <form name="searchForm1" ng-submit="doSearch()">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" required ng-model="searchData.name" placeholder="请输入演出名称">
+                </label>
+            </div>
+
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button ng-disabled="searchForm1.$invalid" class="button button-block button-assertive" type="submit">搜索</button>
+
+            </div>
+
+        </form>
+
+        <div class="tc grey">或</div>
+
+        <form name="searchForm2" ng-submit="doSearch()">
+
+            <div class="list list-inset">
+                <label class="item item-select item-input">
+                    <div class="input-label">
+                        &nbsp;
+                    </div>
+                    <select class="select" required>
+                        <option value="">选择演出分类</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="list list-inset">
+                <label class="item item-input item-icon-right">
+
+                    <input type="text" placeholder="选择起始时间" />
+                    <i class="icon ion-ios7-arrow-right grey"></i>
+
+                </label>
+            </div>
+
+            <div class="list list-inset">
+                <label class="item item-input item-icon-right">
+
+                    <input type="text" placeholder="选择结束时间" />
+                    <i class="icon ion-ios7-arrow-right grey"></i>
+                </label>
+            </div>
+
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button ng-disabled="searchForm2.$invalid" class="button button-block button-assertive" type="submit">搜索</button>
+
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

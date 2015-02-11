@@ -1,0 +1,38 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">注册</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeRegister()">X</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="wrap-gray">
+        <form ng-submit="doRegister()" name="regForm">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input required type="text" ng-model="regData.uname" placeholder="请输入邮箱地址/手机号">
+                </label>
+                <label class="item item-input">
+                    <input required type="password" ng-model="regData.passwd" placeholder="创建密码">
+                </label>
+                <label class="item item-input">
+                    <input required type="password" ng-model="regData.repwd" placeholder="再次输入密码">
+                </label>
+
+            </div>
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button ng-disabled="regForm.$invalid" class="button button-block button-assertive" type="submit">创建账户</button>
+
+            </div>
+
+            <div class="tc grey">已有账户？</div>
+
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button class="button button-block button-dark" type="button" ng-click="login()">立即登陆</button>
+
+            </div>
+
+        </form>
+    </ion-content>
+</ion-modal-view>

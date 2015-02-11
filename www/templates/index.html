@@ -1,0 +1,41 @@
+<ion-view city='city' view-title="中票在线 <small id='city'>{{city}}</small>">
+    <ion-content delegate-handle="indexScroll">
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="hdpic">
+            <ion-slide ng-repeat="item in hdpic">
+                <div class="box blue">
+                    <img ng-src="http://file.piaochong.com/{{item.piclink}}" alt="" />
+                </div>
+            </ion-slide>
+
+        </ion-slide-box>
+
+        <div class="list">
+            <div class="item item-divider">热门</div>
+
+            <div ng-repeat="item in hrank">
+                <a class="item item-thumbnail-left" href="#/app/playlist/{{item.urllink.substring(item.urllink.lastIndexOf('/')+1,item.urllink.lastIndexOf('.'))}}">
+                    <img ng-src="http://file.piaochong.com/{{item.piclink}}" />
+                    <h2>{{item.title}}</h2>
+                    <p>
+                        <small>{{item.expiredtime*1000|date:'yyyy-MM-dd EEEE'}}</small>
+                    </p>
+                    <p>
+                        <small>北京音乐厅</small>
+                    </p>
+                    <p>
+                        <small>180-1280元</small>
+                    </p>
+                    <p class="tr">
+                        <button class="button button-small button-assertive">售票中</button>
+                        <!--<button class="button button-small button-dark" disabled>预定中</button>-->
+                    </p>
+                </a>
+                <div class="item item-divider"></div>
+
+            </div>
+
+
+        </div>
+    </ion-content>
+</ion-view>

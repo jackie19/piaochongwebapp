@@ -1,0 +1,55 @@
+<ion-view view-title="确认订单">
+    <ion-content class="has-footer">
+
+        <div class="list order">
+            <div class="item item-divider">订单详情</div>
+            <div class="item">
+                <div class="row">
+                    <div class="col col-66">单价</div>
+                    <div class="col col-34">￥480</div>
+                </div>
+                <div class="row">
+                    <div class="col col-66">数量</div>
+                    <div class="col col-34">&nbsp;&nbsp;&nbsp;1</div>
+                </div>
+                <div class="row">
+                    <div class="col col-66">运费</div>
+                    <div class="col col-34">￥8</div>
+                </div>
+                <div class="row">
+                    <div class="col col-66">合计</div>
+                    <div class="col col-34">￥<span class="assertive">488</span>
+                        元
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-divider">配送信息</div>
+            <a class="item item-icon-right" href="#/app/address/6">
+                姓名：123 <br /> 电话：2322222 <br /> 地址：北京市东城区123路123号
+
+                <i class="icon ion-ios7-arrow-right"></i>
+            </a>
+            <div class="item item-divider">支付方式</div>
+            <div class="item item-checkbox item-checkbox-right">
+                支付宝
+                <label class="checkbox checkbox-assertive ">
+                    <input type="radio" name="pay" />
+                </label>
+            </div>
+            <div class="item item-checkbox item-checkbox-right">
+                微信支付
+                <label class="checkbox checkbox-assertive ">
+                    <input type="radio" name="pay" />
+                </label>
+            </div>
+        </div>
+
+
+        <div class="tc assertive" style="padding-bottom: 22px;"><small>演出票为特殊商品，一经出售不可退换，请确认后购买</small></div>
+    </ion-content>
+
+    <div class="bar bar-footer" style="background-image:none;background-color: transparent;">
+        <button class="button button-block  button-assertive" style="margin-top: 0;">下一步</button>
+    </div>
+</ion-view>

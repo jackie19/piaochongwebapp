@@ -1,0 +1,59 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">添加地址</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeModal()">X</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="wrap-gray">
+        <form ng-submit="doAddAdress()">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" ng-model="addressData.username" placeholder="姓名">
+                </label>
+            </div>
+
+            <div class="list list-inset">
+                <label class="item item-select item-input ">
+                    <div class="input-label">
+                        省份
+                    </div>
+                    <select ng-options="city.p for city in citys">
+                        <option>请选择省份</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="list list-inset">
+                <label class="item item-select item-input ">
+                    <div class="input-label">
+                        城市
+                    </div>
+                    <select name="">
+                        <option>请选择城市</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" ng-model="addressData.username" placeholder="街道地址">
+                </label>
+            </div>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="tel" ng-model="addressData.tel" placeholder="联系电话">
+                </label>
+            </div>
+
+
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button class="button button-block button-assertive" type="submit">确认</button>
+
+            </div>
+
+
+        </form>
+    </ion-content>
+</ion-modal-view>

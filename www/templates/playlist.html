@@ -1,0 +1,41 @@
+<ion-view view-title="项目介绍">
+    <ion-content class="playlists">
+
+        <div class="list">
+            <div class="item item-thumbnail-left-detail">
+                <h2 class="title" ng-bind="data.info.pname"></h2>
+                <div class="fl">
+                    <img ng-src="http://file.piaochong.com/{{data.info.thepic}}">
+                </div>
+                <div class="oh item-text-wrap">
+                    <p>
+                        <small ng-bind-template="时间：{{data.info.mindate*1000|date:'yyyy-MM-dd EEEE HH:mm'}} "></small>
+                    </p>
+                    <p>　<small ng-bind-template="至 {{data.info.maxdate*1000|date:'yyyy-MM-dd EEEE HH:mm'}}"></small></p>
+                    <p>
+                        <small ng-bind-template="场馆：{{data.ccdatas[data.selcityid].ccs[0].showvenue}}"></small>
+                    </p>
+                    <p>
+                        <small ng-bind-template="价格：{{data.info.minfare}}-{{data.info.maxfare}}元"></small>
+                    </p>
+                </div>
+
+
+                <a ng-href="#/app/ticket/{{data.info.id}}" class="button button-block button-assertive" style="margin-top: 0;">立即购票</a>
+            </div>
+            <div class="item item-divider" style="margin-bottom: 0;">项目详情</div>
+            <div class="item item-body">
+                <div ng-bind-html="data.info.content" style="margin-top: 0;text-indent: 2em;"></div>
+            </div>
+
+            <div class="play-detail-hotline tc">
+                <button class="icon-left ion-ios7-telephone-outline button  button-dark" style="margin-top: 0;white-space:nowrap;">
+                    400-880-2800 <br />
+                    <p>拨打购票热线电话</p>
+                </button>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

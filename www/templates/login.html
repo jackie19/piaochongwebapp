@@ -1,0 +1,39 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">登陆</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">X</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="wrap-gray">
+        <form ng-submit="doLogin()" name="loginForm">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input required  type="text" ng-model="loginData.account" placeholder="请输入邮箱地址/手机号">
+                </label>
+                <label class="item item-input">
+                    <input required type="password" ng-model="loginData.passwd" placeholder="密码">
+                </label>
+
+            </div>
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button ng-disabled="loginForm.$invalid" class="button button-block button-assertive" type="submit">登陆</button>
+
+            </div>
+
+            <div class="tc grey">新客户？</div>
+
+            <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                <button class="button button-block button-dark" type="button" ng-click="register()">注册</button>
+
+            </div>
+
+            <div class="tc">
+
+                <a class="positive" ng-click="findpwd()">忘记密码</a>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

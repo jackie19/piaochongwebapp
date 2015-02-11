@@ -1,0 +1,126 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button class="button-clear">
+                <i class="ion-ios7-arrow-thin-left" style="font-size: 32px;"></i>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+
+
+            <ion-nav-buttons side="right">
+                <a class="button button-icon button-clear ion-ios7-search ng-hide" ng-show="header_btn=='search'" href="#/app/search"></a>
+
+                <div class="button button-icon button-clear ion-android-sort ng-hide" ng-show="header_btn=='filter'" ng-click="showFilterPlaylists()"></div>
+
+                <div class="button button-icon button-clear ion-ios7-upload-outline ng-hide" ng-show="header_btn=='share'"></div>
+
+            </ion-nav-buttons>
+
+
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <!--  <ion-header-bar class="bar-stable">
+              <h1 class="title">Left</h1>
+          </ion-header-bar>-->
+        <ion-content delegate-handle="appMenuScroll">
+            <ion-list>
+
+                <ion-item nav-clear menu-close href="#/app/index" class="item-icon-left">
+                    <i class="icon ion-ios7-home"></i>
+                    首页
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/location" class="item-icon-left">
+                    <i class="icon ion-ios7-location" style="font-size: 22px;"></i>
+                    北京
+                </ion-item>
+
+                <div ng-repeat="(key,value) in menus">
+                    <ion-item class="item-icon-left item-icon-right" ng-click="toggleMenu(value)">
+                        <i class="icon" ng-class="{'ion-more':value.info.name=='其他'}"></i>
+
+                        {{value.info.name}}
+                        <i class="icon" ng-class="{'ion-ios7-plus-empty':!value.childshown,'ion-ios7-minus-empty':value.childshown}"></i>
+                    </ion-item>
+                    <div class="list list-item2" ng-show="value.childshown">
+
+                        <a ng-click="goPlaylists(cvalue)" ng-repeat="(ckey,cvalue) in value.childs" menu-close class="item">{{cvalue.name}}</a>
+
+                    </div>
+
+                </div>
+
+
+                <ion-item nav-clear menu-close ng-click="login()" ng-hide="loginfo">
+                    登陆
+                </ion-item>
+
+                <ion-item nav-clear menu-close href="#/app/my" class="item-icon-left" ng-show="loginfo">
+                    <i class="icon ion-person"></i>
+                    我的账户
+                    <p>
+                        <span ng-bind="loginfo.username"></span>
+                        <a href="" ng-click="doLogout()">退出</a>
+                    </p>
+                </ion-item>
+
+                <ion-item nav-clear menu-close>
+                    客服电话：
+                    <a href="tel:4008202880">400-820-2880</a>
+                </ion-item>
+
+
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>
+<script type="text/ng-template" id="modal-findpwd.html">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-positive">
+            <h1 class="title">忘记密码</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="closeModal()">X</button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="wrap-gray">
+            <form ng-submit="doFindpwd()" name="findpwdForm" ng-show="findpwdStep==1">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input required type="text" ng-model="findpwdData.uname" placeholder="请输入邮箱地址/手机号">
+                    </label>
+                </div>
+                <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                    <button ng-disabled="findpwdForm.$invalid" class="button button-block button-assertive" type="submit">下一步</button>
+
+                </div>
+
+            </form>
+            <form ng-submit="doResetpwd()" name="resetpwdForm" ng-show="findpwdStep==2">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input required type="text" ng-model="resetpwdData.mcode" placeholder="请输入验证码">
+                    </label>
+                    <label class="item item-input">
+                        <input required type="password" ng-model="resetpwdData.pwd" placeholder="请输入新密码">
+                    </label>
+                    <label class="item item-input">
+                        <input required type="password" ng-model="resetpwdData.pwd1" placeholder="再次输入密码">
+                    </label>
+                </div>
+                <div class="list list-borderless" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+
+                    <button ng-disabled="resetpwdForm.$invalid" class="button button-block button-assertive" type="submit">下一步</button>
+
+                </div>
+
+            </form>
+        </ion-content>
+    </ion-modal-view>
+
+</script>

@@ -1,0 +1,110 @@
+<ion-view view-title="{{title}}">
+    <ion-content>
+        <ion-list class="playlists">
+
+            <div class="item tc" ng-hide="data.datas.length>0">
+                很遗憾，此分类下没有演出。
+            </div>
+
+            <ion-item ng-repeat="item in data.datas" href="#/app/playlist/{{item.id}}" class="item-thumbnail-left">
+
+                <img ng-src="http://file.piaochong.com/{{item.thepic}}">
+                <h2 ng-bind="item.pname"></h2>
+                <p>
+                    <small ng-bind="item.showdate"></small>
+                </p>
+                <p>
+                    <small ng-bind="item.showaddress"></small>
+                </p>
+                <p>
+                    <small ng-bind-template="{{item.minfare}}-{{item.maxfare}}元"></small>
+                </p>
+                <p class="tr">
+                    <button ng-show="item.status=='0'" class="button button-small button-dark" disabled>预定中</button>
+                    <button ng-show="item.status=='1'" class="button button-small button-assertive">售票中</button>
+                </p>
+
+
+            </ion-item>
+
+
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="modal_playlist_filter.html" type="text/ng-template">
+    <div class="modal-backdrop playlist_filter active">
+        <div class="row">
+            <div class="col col-50">
+                <div class="list">
+                    <div class="item item-icon-left" ng-click="tab.selectedTab=0" ng-class="{active:tab.selectedTab==0}">
+                        <i class="icon ion-ios7-clock-outline"></i>
+                        时间范围
+                    </div>
+                    <div class="item item-icon-left" ng-click="tab.selectedTab=1" ng-class="{active:tab.selectedTab==1}">
+                        <i class="icon ion-ios7-arrow-thin-down" style="left: 6px;"></i>
+                        <i class="icon ion-ios7-arrow-thin-up" style="left: 18px;"></i>
+                        排序方式
+                    </div>
+                </div>
+            </div>
+            <div class="col col-50">
+                <div class="list tc" ng-show="tab.selectedTab==0">
+                    <label class="item item-radio" ng-click="doChangePlaylists('all')">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            全部时间
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+                    <label class="item item-radio" ng-click="doChangePlaylists('tomorrow')">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            明天
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+                    <label class="item item-radio">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            一周内
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+                    <label class="item item-radio">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            一个月内
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+                </div>
+                <div class="list tc" ng-show="tab.selectedTab==1">
+                    <label class="item item-radio" ng-click="doChangePlaylists('hot')">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            按最热
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+                    <label class="item item-radio" ng-click="doChangePlaylists('new')">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            按最新
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+                    <label class="item item-radio" ng-click="doChangePlaylists('new')">
+                        <input type="radio" name="group">
+                        <div class="item-content">
+                            按时间
+                        </div>
+                        <i class="radio-icon ion-ios7-checkmark-empty"></i>
+                    </label>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</script>
